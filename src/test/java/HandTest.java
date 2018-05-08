@@ -33,7 +33,7 @@ public class HandTest {
     @Test
     public void handHasValue(){
         hand.addCard(card);
-        assertEquals(11, hand.getHandValue());
+        assertEquals(10, hand.getHandValue());
     }
 
     @Test

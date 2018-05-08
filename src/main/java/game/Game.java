@@ -31,6 +31,7 @@ public class Game {
 
     public void twist(Player player){
         player.addCardToHand(deck.getCard());
+        checkForBust(player);
     }
 
 //    public void play() {
@@ -50,6 +51,10 @@ public class Game {
 
     public Player checkWinner(){
         Player dealer1 = players.get(0);
+        if (dealer1.getHandValue() == 21 && dealer1.getHand().getNumberOfCards() == 2)
+        {
+            return dealer1;
+        }
         Player player2 = players.get(1);
         if (dealer1.getHandValue() == player2.getHandValue()){
             return null;

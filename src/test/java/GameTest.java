@@ -79,11 +79,25 @@ public class GameTest {
     }
 
     @Test
+    public void canStick() {
+        player1.setStick();
+        assertEquals(true, player1.getStick());
+    }
+
+    @Test
     public void checkIfPlayerIsBust() {
         game.deal();
         player1.addCardToHand(new Card(Suit.DIAMONDS, Rank.EIGHT));
         player1.addCardToHand(new Card(Suit.DIAMONDS, Rank.EIGHT));
         player1.addCardToHand(new Card(Suit.DIAMONDS, Rank.EIGHT));
         assertEquals(true, game.checkForBust(player1));
+    }
+
+    @Test
+    public void dealerCanBlackjack() {
+        dealer.addCardToHand(new Card(Suit.DIAMONDS, Rank.KING));
+        dealer.addCardToHand(new Card(Suit.DIAMONDS, Rank.ACE));
+        player1.addCardToHand(new Card(Suit.DIAMONDS, Rank.EIGHT));
+        assertEquals(dealer, game.checkWinner());
     }
 }

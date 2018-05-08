@@ -37,6 +37,6 @@ public class PlayerTest {
     public void playerHandValueIs17(){
         player.addCardToHand(card);
         player.addCardToHand(card2);
-        assertEquals(18, player.getHandValue());
+        assertEquals(15, player.getHandValue());
     }
 }
