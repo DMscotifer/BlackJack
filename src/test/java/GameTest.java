@@ -45,7 +45,15 @@ public class GameTest {
         Player winner = game.checkWinner();
         assertEquals("player.Player 1", winner.getName());
     }
-//
+
+    @Test
+    public void canBlackjack() {
+        player1.addCardToHand(new Card(Suit.CLUBS, Rank.ACE));
+        player1.addCardToHand(new Card(Suit.CLUBS, Rank.KING));
+        assertEquals(21, player1.getHandValue());
+    }
+
+    //
 //    @Test
 //    public void player2Wins(){
 //        player1.addCardToHand(new Card(Suit.CLUBS, Rank.THREE));
@@ -68,5 +76,14 @@ public class GameTest {
         game.deal();
         game.twist(player1);
         assertEquals(3, player1.getHand().getNumberOfCards());
+    }
+
+    @Test
+    public void checkIfPlayerIsBust() {
+        game.deal();
+        player1.addCardToHand(new Card(Suit.DIAMONDS, Rank.EIGHT));
+        player1.addCardToHand(new Card(Suit.DIAMONDS, Rank.EIGHT));
+        player1.addCardToHand(new Card(Suit.DIAMONDS, Rank.EIGHT));
+        assertEquals(true, game.checkForBust(player1));
     }
 }

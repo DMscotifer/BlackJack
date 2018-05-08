@@ -1,6 +1,7 @@
 package game;
 
 import card.Deck;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import player.Dealer;
 import player.Player;
 
@@ -19,6 +20,13 @@ public class Game {
         deal();
         Player winner = checkWinner();
 
+    }
+
+    public Boolean checkForBust(Player player){
+        if(player.getHandValue() > 21){
+            return true;
+        }
+        return false;
     }
 
     public void twist(Player player){

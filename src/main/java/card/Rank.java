@@ -1,7 +1,7 @@
 package card;
 
 public enum Rank
-    {ACE(14, "Ace"),
+    {ACE(11, "Ace"),
     TWO(2, "Two"),
     THREE(3, "Three"),
     FOUR(4,"Four"),
@@ -11,9 +11,9 @@ public enum Rank
     EIGHT(8, "Eight"),
     NINE(9, "Nine"),
     TEN(10, "Ten"),
-    JACK(11, "Jack"),
-    QUEEN(12, "Queen"),
-    KING(13, "King");
+    JACK(10, "Jack"),
+    QUEEN(10, "Queen"),
+    KING(10, "King");
 
     private int value;
     private String name;
